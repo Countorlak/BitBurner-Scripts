@@ -1,8 +1,8 @@
 /** @param {NS} ns */
 export async function main(ns) {
 
-// Version 1.0.1
-// Use this file like: ./maint.js server-name -t #
+// Version 1.0.4
+// Usage: ./maint.js server-name -t #
 // Will take 1 arg for targeted server then maintain hacks, weakenings, and grow at optimal levels.
 
 	while(true){
@@ -12,11 +12,11 @@ export async function main(ns) {
 		let srvFunds = ns.getServerMoneyAvailable(srv);
 		const srvFundsMax = ns.getServerMaxMoney(srv);
 
-		while(srvSec > srvSecMin + 1){
+		while(srvSec > (srvSecMin + 1)){
 			await ns.weaken(srv);
 		}
 
-		while(srvFunds < srvFundsMax * 0.9){
+		while(srvFunds < (srvFundsMax * 0.9)){
 			await ns.grow(srv);
 		}
 
